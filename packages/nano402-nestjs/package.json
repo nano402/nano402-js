@@ -1,0 +1,57 @@
+{
+  "name": "@nano402/nestjs",
+  "version": "0.0.1",
+  "description": "NestJS guard for nano402-core - HTTP 402 payments with Nano cryptocurrency",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "dev": "vitest watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "nano",
+    "cryptocurrency",
+    "402",
+    "payments",
+    "http-402",
+    "paywall",
+    "micropayments",
+    "nestjs",
+    "guard"
+  ],
+  "author": "xnowing",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nankio/nano402.git"
+  },
+  "homepage": "https://github.com/nankio/nano402#readme",
+  "bugs": {
+    "url": "https://github.com/nankio/nano402/issues"
+  },
+  "dependencies": {
+    "@nano402/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

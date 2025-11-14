@@ -1,0 +1,61 @@
+{
+  "name": "@nano402/core",
+  "version": "0.0.1",
+  "description": "Core HTTP 402 payment library for Nano cryptocurrency - framework agnostic",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "dev": "vitest watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "nano",
+    "cryptocurrency",
+    "402",
+    "payments",
+    "http-402",
+    "paywall",
+    "micropayments",
+    "nano-payments",
+    "xno",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "xnowing",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nankio/nano402.git"
+  },
+  "homepage": "https://github.com/nankio/nano402#readme",
+  "bugs": {
+    "url": "https://github.com/nankio/nano402/issues"
+  },
+  "dependencies": {
+    "@noble/ed25519": "^2.0.0",
+    "@noble/hashes": "^1.3.3",
+    "blakejs": "^1.2.1",
+    "nanocurrency": "^2.5.0",
+    "uuid": "^9.0.1"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

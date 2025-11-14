@@ -1,0 +1,30 @@
+{
+  "name": "nano-402",
+  "version": "0.0.3",
+  "description": "HTTP 402 payments using Nano cryptocurrency",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "dev": "pnpm -r --parallel dev",
+    "clean": "pnpm -r clean",
+    "publish:core": "pnpm --filter @nano402/core publish --access public",
+    "publish:express": "pnpm --filter @nano402/express publish --access public",
+    "publish:nestjs": "pnpm --filter @nano402/nestjs publish --access public",
+    "publish:all": "pnpm publish:core && pnpm publish:express && pnpm publish:nestjs"
+  },
+  "keywords": [
+    "nano",
+    "cryptocurrency",
+    "402",
+    "payments",
+    "http-402"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  }
+}
