@@ -32,11 +32,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nankio/nano402.git"
+    "url": "git+https://github.com/nano402/nano402-js.git"
   },
-  "homepage": "https://github.com/nankio/nano402#readme",
+  "homepage": "https://github.com/nano402/nano402-js#readme",
   "bugs": {
-    "url": "https://github.com/nankio/nano402/issues"
+    "url": "https://github.com/nano402/nano402-js/issues"
   },
   "dependencies": {
     "@noble/ed25519": "^2.0.0",

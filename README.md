@@ -692,8 +692,8 @@ PORT=3000
 
 ## Repository
 
-- **GitHub**: [https://github.com/nankio/nano402](https://github.com/nankio/nano402)
-- **Issues**: [https://github.com/nankio/nano402/issues](https://github.com/nankio/nano402/issues)
+- **GitHub**: [https://github.com/nano402/nano402-js](https://github.com/nano402/nano402-js)
+- **Issues**: [https://github.com/nano402/nano402-js/issues](https://github.com/nano402/nano402-js/issues)
 
 ## License
 
