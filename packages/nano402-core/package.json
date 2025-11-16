@@ -1,6 +1,6 @@
 {
   "name": "nano402",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Core HTTP 402 payment library for Nano cryptocurrency - framework agnostic",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
