@@ -20,7 +20,7 @@ npm install express
 
 ## Overview
 
-`@nano402/express` provides Express.js middleware that makes it easy to protect routes with HTTP 402 payments. It includes all functionality from `@nano402/core` plus Express-specific middleware.
+`@nano402/express` provides Express.js middleware that makes it easy to protect routes with HTTP 402 payments. It includes all functionality from `nano402` plus Express-specific middleware.
 
 ## Quick Start
 
@@ -214,7 +214,7 @@ app.get("/api/manual", async (req, res) => {
 
 ## Core Library Access
 
-This package re-exports everything from `@nano402/core`, so you can use all core functionality:
+This package re-exports everything from `nano402`, so you can use all core functionality:
 
 ```typescript
 import {

@@ -6,14 +6,14 @@ import {
   getClientIp,
   type GuardOptions,
   type GuardRequest,
-} from "@nano402/core";
+} from "nano402";
 import {
   InvoiceNotFoundError,
   InvoiceExpiredError,
   InvalidAmountError,
   RpcError,
   RpcTimeoutError,
-} from "@nano402/core";
+} from "nano402";
 
 export interface Nano402GuardOptions extends GuardOptions {}
 

@@ -83,12 +83,12 @@ importers:
 
   packages/nano402-express:
     dependencies:
-      '@nano402/core':
-        specifier: workspace:*
-        version: link:../nano402-core
       express:
         specifier: ^4.18.0
         version: 4.21.2
+      nano402:
+        specifier: workspace:*
+        version: link:../nano402-core
     devDependencies:
       '@types/express':
         specifier: ^4.17.21
@@ -105,7 +105,7 @@ importers:
 
   packages/nano402-nestjs:
     dependencies:
-      '@nano402/core':
+      nano402:
         specifier: workspace:*
         version: link:../nano402-core
     devDependencies:

@@ -4,7 +4,7 @@ This project has been refactored into separate packages to avoid code duplicatio
 
 ## Package Overview
 
-### `@nano402/core`
+### `nano402`
 
 **Framework-agnostic core library**
 
@@ -27,16 +27,16 @@ Contains all the business logic:
 
 **Express.js middleware**
 
-Thin wrapper around `@nano402/core` (~126 lines):
+Thin wrapper around `nano402` (~126 lines):
 
 - Express middleware (`nano402Guard`)
 - Express-specific request/response handling
 - Uses shared verification logic from core
-- Re-exports everything from `@nano402/core`
+- Re-exports everything from `nano402`
 
 **Dependencies:**
 
-- `@nano402/core` (workspace dependency)
+- `nano402` (workspace dependency)
 - `express` (peer dependency)
 
 **Implementation:** The middleware uses `handleGuardRequest` from core and adapts the result to Express's middleware pattern (`next()` callback).
@@ -50,18 +50,18 @@ NestJS-specific implementation (~200 lines):
 - `Nano402Guard` class (implements `CanActivate`)
 - NestJS `ExecutionContext` handling
 - Uses shared verification logic from core
-- Re-exports everything from `@nano402/core`
+- Re-exports everything from `nano402`
 
 **Dependencies:**
 
-- `@nano402/core` (workspace dependency)
+- `nano402` (workspace dependency)
 - `@nestjs/common`, `@nestjs/core` (peer dependencies)
 
 **Implementation:** The guard uses `handleGuardRequest` from core and adapts the result to NestJS's guard pattern (returns `boolean`).
 
 ## Benefits of This Structure
 
-✅ **No Code Duplication** - Core logic lives in one place (`@nano402/core`)
+✅ **No Code Duplication** - Core logic lives in one place (`nano402`)
 ✅ **Framework Independence** - Core can be used with any framework
 ✅ **Smaller Bundles** - Users only install what they need
 ✅ **Easy to Extend** - Adding Fastify, Koa, Hono, etc. is straightforward
@@ -101,7 +101,7 @@ export class AppController {
 ### Core Only (Custom Framework)
 
 ```typescript
-import { Nano402, handleGuardRequest, generate402Response, getClientIp } from "@nano402/core";
+import { Nano402, handleGuardRequest, generate402Response, getClientIp } from "nano402";
 
 const nano402 = new Nano402({ ... });
 
@@ -124,7 +124,7 @@ if (result.type === "grant") {
 
 All packages are managed in a pnpm workspace:
 
-- `packages/nano402-core/` - Core library (`@nano402/core`)
+- `packages/nano402-core/` - Core library (`nano402`)
 - `packages/nano402-express/` - Express middleware (`@nano402/express`)
 - `packages/nano402-nestjs/` - NestJS guard (`@nano402/nestjs`)
 

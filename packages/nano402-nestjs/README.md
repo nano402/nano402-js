@@ -20,7 +20,7 @@ npm install @nestjs/common @nestjs/core
 
 ## Overview
 
-`@nano402/nestjs` provides a NestJS guard that makes it easy to protect routes with HTTP 402 payments. It includes all functionality from `@nano402/core` plus NestJS-specific guard implementation.
+`@nano402/nestjs` provides a NestJS guard that makes it easy to protect routes with HTTP 402 payments. It includes all functionality from `nano402` plus NestJS-specific guard implementation.
 
 ## Quick Start
 
@@ -275,7 +275,7 @@ export class AppController {
 
 ## Core Library Access
 
-This package re-exports everything from `@nano402/core`, so you can use all core functionality:
+This package re-exports everything from `nano402`, so you can use all core functionality:
 
 ```typescript
 import {

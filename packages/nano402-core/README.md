@@ -1,20 +1,20 @@
-# @nano402/core
+# nano402
 
 Framework-agnostic core library for HTTP 402 payments with Nano cryptocurrency.
 
 ## Installation
 
 ```bash
-npm install @nano402/core
+npm install nano402
 # or
-pnpm add @nano402/core
+pnpm add nano402
 # or
-yarn add @nano402/core
+yarn add nano402
 ```
 
 ## Overview
 
-`@nano402/core` provides the core functionality for implementing HTTP 402 payment systems using Nano cryptocurrency. It's framework-agnostic and can be used with any Node.js backend framework.
+`nano402` provides the core functionality for implementing HTTP 402 payment systems using Nano cryptocurrency. It's framework-agnostic and can be used with any Node.js backend framework.
 
 ## Features
 
@@ -29,7 +29,7 @@ yarn add @nano402/core
 ## Quick Start
 
 ```typescript
-import { Nano402 } from "@nano402/core";
+import { Nano402 } from "nano402";
 
 // Initialize Nano402
 const nano402 = new Nano402({
@@ -141,7 +141,7 @@ Custom error classes for better error handling:
 ### Basic Usage
 
 ```typescript
-import { Nano402 } from "@nano402/core";
+import { Nano402 } from "nano402";
 
 const nano402 = new Nano402({
   walletSeed: process.env.NANO_SEED!,

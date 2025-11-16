@@ -13,14 +13,14 @@ import {
   getClientIp,
   type GuardOptions,
   type GuardRequest,
-} from "@nano402/core";
+} from "nano402";
 import {
   InvoiceNotFoundError,
   InvoiceExpiredError,
   InvalidAmountError,
   RpcError,
   RpcTimeoutError,
-} from "@nano402/core";
+} from "nano402";
 
 export interface Nano402GuardOptions extends GuardOptions {}
 
@@ -31,7 +31,7 @@ export interface Nano402GuardOptions extends GuardOptions {}
  * ```typescript
  * import { Controller, Get, UseGuards } from '@nestjs/common';
  * import { Nano402Guard } from '@nano402/nestjs';
- * import { Nano402 } from '@nano402/core';
+ * import { Nano402 } from 'nano402';
  *
  * @Controller('api')
  * export class AppController {

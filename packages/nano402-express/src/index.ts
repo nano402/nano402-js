@@ -1,5 +1,5 @@
 // Re-export everything from core
-export * from "@nano402/core";
+export * from "nano402";
 
 // Export Express-specific middleware
 export { nano402Guard } from "./express";

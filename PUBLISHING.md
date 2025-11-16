@@ -40,12 +40,12 @@ Before publishing, you need to replace `workspace:*` with actual versions. You c
 
 ### 3. Publish in Order
 
-**Important:** Publish `@nano402/core` first, then the dependent packages:
+**Important:** Publish `nano402` first, then the dependent packages:
 
 ```bash
 # 1. Publish core first
 cd packages/nano402-core
-npm publish --access public
+npm publish
 
 # 2. Publish express (depends on core)
 cd ../nano402-express
@@ -62,7 +62,7 @@ pnpm can handle workspace dependencies automatically:
 
 ```bash
 # From project root
-pnpm --filter @nano402/core publish --access public
+pnpm --filter nano402 publish
 pnpm --filter @nano402/express publish --access public
 pnpm --filter @nano402/nestjs publish --access public
 ```
@@ -74,8 +74,8 @@ You can add a publish script to the root `package.json`:
 ```json
 {
   "scripts": {
-    "publish:all": "pnpm --filter @nano402/core publish --access public && pnpm --filter @nano402/express publish --access public && pnpm --filter @nano402/nestjs publish --access public",
-    "publish:core": "pnpm --filter @nano402/core publish --access public",
+    "publish:all": "pnpm --filter nano402 publish && pnpm --filter @nano402/express publish --access public && pnpm --filter @nano402/nestjs publish --access public",
+    "publish:core": "pnpm --filter nano402 publish",
     "publish:express": "pnpm --filter @nano402/express publish --access public",
     "publish:nestjs": "pnpm --filter @nano402/nestjs publish --access public"
   }
@@ -143,7 +143,7 @@ npm publish --dry-run --access public
 1. **Verify** packages are published:
 
    ```bash
-   npm view @nano402/core
+   npm view nano402
    npm view @nano402/express
    npm view @nano402/nestjs
    ```
@@ -178,7 +178,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: pnpm install
       - run: pnpm build
-      - run: pnpm --filter @nano402/core publish --access public
+      - run: pnpm --filter nano402 publish
       - run: pnpm --filter @nano402/express publish --access public
       - run: pnpm --filter @nano402/nestjs publish --access public
         env:

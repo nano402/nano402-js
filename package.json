@@ -8,7 +8,7 @@
     "test": "pnpm -r test",
     "dev": "pnpm -r --parallel dev",
     "clean": "pnpm -r clean",
-    "publish:core": "pnpm --filter @nano402/core publish --access public",
+    "publish:core": "pnpm --filter nano402 publish --access public",
     "publish:express": "pnpm --filter @nano402/express publish --access public",
     "publish:nestjs": "pnpm --filter @nano402/nestjs publish --access public",
     "publish:all": "pnpm publish:core && pnpm publish:express && pnpm publish:nestjs"

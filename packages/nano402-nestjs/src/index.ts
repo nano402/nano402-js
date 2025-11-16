@@ -1,5 +1,5 @@
 // Re-export everything from core
-export * from "@nano402/core";
+export * from "nano402";
 
 // Export NestJS-specific guard
 export { Nano402Guard } from "./nano402.guard";

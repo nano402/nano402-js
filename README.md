@@ -24,12 +24,12 @@ We recommend:
 
 This is a **monorepo** containing:
 
-- **`@nano402/core`** (`packages/nano402-core`) - Framework-agnostic core library
+- **`nano402`** (`packages/nano402-core`) - Framework-agnostic core library
 - **`@nano402/express`** (`packages/nano402-express`) - Express.js middleware
 - **`@nano402/nestjs`** (`packages/nano402-nestjs`) - NestJS guard
 - **`examples/basic-server`** - Example Express server implementation
 
-**Note:** The project has been split into separate packages for better maintainability and framework support. All verification logic is centralized in `@nano402/core`, making framework packages thin wrappers (~126 lines for Express, ~200 lines for NestJS). See [PACKAGE_STRUCTURE.md](./docs/PACKAGE_STRUCTURE.md) for details.
+**Note:** The project has been split into separate packages for better maintainability and framework support. All verification logic is centralized in `nano402`, making framework packages thin wrappers (~126 lines for Express, ~200 lines for NestJS). See [PACKAGE_STRUCTURE.md](./docs/PACKAGE_STRUCTURE.md) for details.
 
 ## What is HTTP 402?
 
@@ -66,9 +66,9 @@ npm install @nano402/nestjs
 ### For Custom Frameworks
 
 ```bash
-pnpm add @nano402/core
+pnpm add nano402
 # or
-npm install @nano402/core
+npm install nano402
 ```
 
 **Note:** See [PACKAGE_STRUCTURE.md](./docs/PACKAGE_STRUCTURE.md) for more details on the package structure.
@@ -121,7 +121,7 @@ For more control, you can implement the payment flow manually:
 
 ```typescript
 import express from "express";
-import { Nano402 } from "@nano402/core";
+import { Nano402 } from "nano402";
 
 const app = express();
 
@@ -299,7 +299,7 @@ The core library exports:
 #### `Nano402` Class
 
 ```typescript
-import { Nano402 } from "@nano402/core";
+import { Nano402 } from "nano402";
 
 const nano402 = new Nano402({
   walletSeed: string; // 64-character hex seed
