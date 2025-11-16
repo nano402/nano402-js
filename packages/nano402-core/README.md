@@ -169,7 +169,7 @@ if (isValid) {
 ### Using SQLite Storage
 
 ```typescript
-import { Nano402, SqliteInvoiceStore } from "@nano402/core";
+import { Nano402, SqliteInvoiceStore } from "nano402";
 
 const invoiceStore = new SqliteInvoiceStore({
   dbPath: "./data/invoices.db",
@@ -229,4 +229,3 @@ MIT
 
 - **GitHub**: [https://github.com/nano402/nano402-js](https://github.com/nano402/nano402-js)
 - **Issues**: [https://github.com/nano402/nano402-js/issues](https://github.com/nano402/nano402-js/issues)
-
