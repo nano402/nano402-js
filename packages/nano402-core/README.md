@@ -95,6 +95,25 @@ const nano402 = new Nano402({
 - `xnoToRaw(amount: string): string` - Convert XNO to raw units
 - `rawToXno(amount: string): string` - Convert raw units to XNO
 
+### Verification Utilities
+
+Shared verification helpers used by framework packages:
+
+- `calculateRetryAfter(expiresAt: string): number` - Calculate Retry-After header value in seconds
+- `isSessionValid(invoice: Invoice, sessionDuration?: number): boolean` - Check if session is still valid
+- `isUsageExceeded(invoice: Invoice, maxUsage?: number): boolean` - Check if invoice has exceeded max usage
+- `getPaymentInfo(options: GuardOptions): PaymentInfo` - Generate helpful payment information
+- `getClientIp(req: RequestLike): string` - Extract client IP from request (framework-agnostic)
+
+### Guard Logic
+
+Framework-agnostic guard handler for implementing payment protection:
+
+- `handleGuardRequest(nano402: Nano402, request: GuardRequest, options: GuardOptions): Promise<GuardResult>` - Main guard handler that performs all verification logic
+- `generate402Response(invoice: Invoice, options: GuardOptions, nano402: Nano402): ResponseData` - Generate standardized 402 response data
+
+These utilities are used internally by `@nano402/express` and `@nano402/nestjs` packages, but can also be used directly when building custom framework integrations.
+
 ### Types
 
 All TypeScript types are exported for use in your projects:

@@ -29,7 +29,7 @@ This is a **monorepo** containing:
 - **`@nano402/nestjs`** (`packages/nano402-nestjs`) - NestJS guard
 - **`examples/basic-server`** - Example Express server implementation
 
-**Note:** The project has been split into separate packages for better maintainability and framework support. See [PACKAGE_STRUCTURE.md](./docs/PACKAGE_STRUCTURE.md) for details.
+**Note:** The project has been split into separate packages for better maintainability and framework support. All verification logic is centralized in `@nano402/core`, making framework packages thin wrappers (~126 lines for Express, ~200 lines for NestJS). See [PACKAGE_STRUCTURE.md](./docs/PACKAGE_STRUCTURE.md) for details.
 
 ## What is HTTP 402?
 
@@ -267,6 +267,19 @@ The core library exports:
 - `deriveNanoAccount(seed: string, index: number): string` - Derive Nano account from seed and index
 - `xnoToRaw(amount: string): string` - Convert XNO to raw units
 - `rawToXno(amount: string): string` - Convert raw units to XNO
+
+**Verification Utilities:**
+
+- `calculateRetryAfter(expiresAt: string): number` - Calculate Retry-After header value
+- `isSessionValid(invoice: Invoice, sessionDuration?: number): boolean` - Check if session is valid
+- `isUsageExceeded(invoice: Invoice, maxUsage?: number): boolean` - Check if usage limit exceeded
+- `getPaymentInfo(options: GuardOptions): PaymentInfo` - Generate payment information
+- `getClientIp(req: RequestLike): string` - Extract client IP from request (framework-agnostic)
+
+**Guard Logic:**
+
+- `handleGuardRequest(nano402: Nano402, request: GuardRequest, options: GuardOptions): Promise<GuardResult>` - Framework-agnostic guard handler
+- `generate402Response(invoice: Invoice, options: GuardOptions, nano402: Nano402): ResponseData` - Generate standardized 402 response
 
 **Types:**
 

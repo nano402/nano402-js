@@ -36,9 +36,11 @@ const nano402 = new Nano402({
 
 @Controller("api")
 export class AppController {
+  constructor(private readonly nano402: Nano402) {}
+
   @Get("protected")
   @UseGuards(
-    Nano402Guard(nano402, {
+    new Nano402Guard(this.nano402, {
       amount_xno: "0.00001",
       ttlSeconds: 3600,
       description: "Access to premium content",
@@ -60,9 +62,11 @@ import { Nano402, Nano402Guard } from "@nano402/nestjs";
 
 @Controller("api")
 export class AppController {
+  constructor(private readonly nano402: Nano402) {}
+
   @Get("premium")
   @UseGuards(
-    Nano402Guard(nano402, {
+    new Nano402Guard(this.nano402, {
       amount_xno: "0.00001",
     })
   )
@@ -180,7 +184,7 @@ export class AppController {
 
   @Get("protected")
   @UseGuards(
-    Nano402Guard(this.nano402Service.getInstance(), {
+    new Nano402Guard(this.nano402Service.getInstance(), {
       amount_xno: "0.00001",
     })
   )

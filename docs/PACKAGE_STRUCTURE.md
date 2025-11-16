@@ -15,18 +15,23 @@ Contains all the business logic:
 - RPC client for Nano network
 - Payment verification logic
 - Invoice management
+- **Verification utilities** - Shared helpers (`calculateRetryAfter`, `isSessionValid`, `isUsageExceeded`, `getPaymentInfo`, `getClientIp`)
+- **Guard logic** - Framework-agnostic verification handler (`handleGuardRequest`, `generate402Response`)
 - All types and errors
 
 **No framework dependencies** - can be used with any Node.js framework.
+
+**Architecture:** The core package contains all shared verification logic, eliminating code duplication between framework packages. Framework packages are thin wrappers that adapt the core logic to their specific patterns.
 
 ### `@nano402/express`
 
 **Express.js middleware**
 
-Thin wrapper around `@nano402/core`:
+Thin wrapper around `@nano402/core` (~126 lines):
 
 - Express middleware (`nano402Guard`)
 - Express-specific request/response handling
+- Uses shared verification logic from core
 - Re-exports everything from `@nano402/core`
 
 **Dependencies:**
@@ -34,20 +39,25 @@ Thin wrapper around `@nano402/core`:
 - `@nano402/core` (workspace dependency)
 - `express` (peer dependency)
 
+**Implementation:** The middleware uses `handleGuardRequest` from core and adapts the result to Express's middleware pattern (`next()` callback).
+
 ### `@nano402/nestjs`
 
 **NestJS guard**
 
-NestJS-specific implementation:
+NestJS-specific implementation (~200 lines):
 
 - `Nano402Guard` class (implements `CanActivate`)
 - NestJS `ExecutionContext` handling
+- Uses shared verification logic from core
 - Re-exports everything from `@nano402/core`
 
 **Dependencies:**
 
 - `@nano402/core` (workspace dependency)
 - `@nestjs/common`, `@nestjs/core` (peer dependencies)
+
+**Implementation:** The guard uses `handleGuardRequest` from core and adapts the result to NestJS's guard pattern (returns `boolean`).
 
 ## Benefits of This Structure
 
@@ -56,8 +66,9 @@ NestJS-specific implementation:
 ✅ **Smaller Bundles** - Users only install what they need
 ✅ **Easy to Extend** - Adding Fastify, Koa, Hono, etc. is straightforward
 ✅ **Better Testing** - Test core logic separately from framework integrations
-✅ **Maintainability** - Framework-specific code is isolated
+✅ **Maintainability** - Framework-specific code is isolated (Express: ~126 lines, NestJS: ~200 lines)
 ✅ **Scoped Packages** - Professional organization with `@nano402/` namespace
+✅ **Shared Verification Logic** - All verification helpers and guard logic centralized in core
 
 ## Usage Examples
 
@@ -90,10 +101,23 @@ export class AppController {
 ### Core Only (Custom Framework)
 
 ```typescript
-import { Nano402 } from "@nano402/core";
+import { Nano402, handleGuardRequest, generate402Response, getClientIp } from "@nano402/core";
 
 const nano402 = new Nano402({ ... });
-// Implement your own middleware/guard using nano402 methods
+
+// Use shared guard logic
+const guardRequest = {
+  path: req.path,
+  headers: req.headers,
+  getClientIp: () => getClientIp(req),
+};
+
+const result = await handleGuardRequest(nano402, guardRequest, options);
+if (result.type === "grant") {
+  // Grant access
+} else if (result.type === "deny") {
+  // Return 402 response using generate402Response
+}
 ```
 
 ## Workspace Setup

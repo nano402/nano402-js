@@ -37,4 +37,19 @@ export type {
   NanoRpcAccountInfoResponse,
   NanoRpcWorkGenerateResponse,
 } from "./types";
+// Verification utilities
+export {
+  calculateRetryAfter,
+  isSessionValid,
+  isUsageExceeded,
+  getPaymentInfo,
+  getClientIp,
+} from "./verification";
+export type { RequestLike } from "./verification";
+// Guard logic
+export {
+  handleGuardRequest,
+  generate402Response,
+} from "./guardLogic";
+export type { GuardOptions, GuardRequest, GuardResult } from "./guardLogic";
 
