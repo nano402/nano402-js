@@ -249,3 +249,9 @@ MIT
 - **GitHub**: [https://github.com/nano402/nano402-js](https://github.com/nano402/nano402-js)
 - **Issues**: [https://github.com/nano402/nano402-js/issues](https://github.com/nano402/nano402-js/issues)
 
+## Donations
+
+If you find this project useful, consider supporting its development:
+
+**Nano Address:** `nano_366td9nfbxns1tkq3u1ryoaazdzjc5ah3duipw5s7dah4nqna41a6hef3i7x`
+

@@ -734,3 +734,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Support
 
 For questions, issues, or feature requests, please open an issue on GitHub.
+
+## Donations
+
+If you find this project useful, consider supporting its development:
+
+**Nano Address:** `nano_366td9nfbxns1tkq3u1ryoaazdzjc5ah3duipw5s7dah4nqna41a6hef3i7x`

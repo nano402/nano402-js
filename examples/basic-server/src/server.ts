@@ -33,7 +33,8 @@ app.get(
     ttlSeconds: 3600,
     description: "Access to premium secret data", // Description shown in 402 response
     makeItPublic: false, // Track payments by IP - enables parameter-free unlocking!
-    sessionDuration: 1000, // 1 minute session
+    sessionDuration: 10, // 10 seconds session
+    trackByIp: true,
     maxUsage: 5,
   }),
   (req, res) => {

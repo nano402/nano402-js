@@ -1,7 +1,7 @@
 {
   "name": "@nano402/nestjs",
   "version": "0.0.13",
-  "description": "NestJS guard for nano402-core - HTTP 402 payments with Nano cryptocurrency",
+  "description": "NestJS guard for nano402 - HTTP 402 payments with Nano cryptocurrency",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -53,5 +53,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "nano:nano_366td9nfbxns1tkq3u1ryoaazdzjc5ah3duipw5s7dah4nqna41a6hef3i7x"
   }
 }
