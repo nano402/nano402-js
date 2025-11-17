@@ -453,7 +453,7 @@ The library supports multiple invoice storage backends. By default, it will auto
 Persistent storage with better concurrency support. This is the recommended option for production:
 
 ```typescript
-import { Nano402, SqliteInvoiceStore } from "nano402-core";
+import { Nano402, SqliteInvoiceStore } from "nano402";
 
 const invoiceStore = new SqliteInvoiceStore({
   dbPath: "./data/invoices.db", // Optional, defaults to .nano402-invoices.db
@@ -481,7 +481,7 @@ The library uses `optionalDependencies`, so if `better-sqlite3` is not installed
 In-memory storage, perfect for development and testing. Automatically used if SQLite is not available:
 
 ```typescript
-import { Nano402, MemoryInvoiceStore } from "nano402-core";
+import { Nano402, MemoryInvoiceStore } from "nano402";
 
 const invoiceStore = new MemoryInvoiceStore({
   indexStorePath: "./.nano402-db.json", // Optional, defaults to .nano402-db.json
@@ -507,7 +507,7 @@ Index stores manage the deterministic address derivation index. The library supp
 You can configure the index store separately:
 
 ```typescript
-import { Nano402, FileIndexStore, SqliteIndexStore } from "nano402-core";
+import { Nano402, FileIndexStore, SqliteIndexStore } from "nano402";
 
 // Use file-based index store
 const indexStore = new FileIndexStore("./.nano402-index.json");
@@ -525,7 +525,7 @@ const nano402 = new Nano402({
 Implement the `InvoiceStore` interface:
 
 ```typescript
-import { InvoiceStore, Invoice } from "nano402-core";
+import { InvoiceStore, Invoice } from "nano402";
 
 class DatabaseInvoiceStore implements InvoiceStore {
   async save(invoice: Invoice): Promise<void> {
