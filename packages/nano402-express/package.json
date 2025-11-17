@@ -1,6 +1,6 @@
 {
   "name": "@nano402/express",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Express middleware for nano402 - HTTP 402 payments with Nano cryptocurrency",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
